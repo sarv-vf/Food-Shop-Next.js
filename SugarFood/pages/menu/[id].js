@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import DetailsPage from "../../components/templates/DetailsPage";
 
-function Details({data}) {
+function Details({ data }) {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <h2>Loading Page...</h2>
+    return <h2>Loading Page...</h2>;
   }
   return <DetailsPage {...data} />;
 }
@@ -38,6 +38,6 @@ export async function getStaticProps(context) {
 
   return {
     props: { data },
-    revalidate: 10, //seconds 60*60
+    revalidate: 1 * 60 * 60,
   };
 }
